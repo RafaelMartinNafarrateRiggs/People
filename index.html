@@ -38,19 +38,24 @@
     .category { font-weight: bold; color: #2980b9; }
     .description { font-style: italic; color: #7f8c8d; }
     .history { color: #2c3e50; }
+    #searchContainer {
+      text-align: center;
+      margin-bottom: 20px;
+    }
     #searchInput {
-      padding: 10px;
+      padding: 10px 35px 10px 10px;
       width: 60%;
       border: 1px solid #ccc;
       border-radius: 5px;
-      margin-bottom: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/5/55/Magnifying_glass_icon.svg') no-repeat right 10px center;
+      background-size: 20px;
     }
   </style>
 </head>
 <body>
   <h1>People of the World</h1>
-  <div style="text-align:center;">
-    <input type="text" id="searchInput" placeholder="Search by name, category, or description...">
+  <div id="searchContainer">
+    <input type="text" id="searchInput" placeholder="">
   </div>
   <table>
     <thead>
@@ -66,41 +71,23 @@
       </tr>
     </thead>
     <tbody id="peopleTable">
-      <!-- Example rows -->
-      <tr>
-        <td class="category">Science</td>
-        <td>Albert Einstein</td>
-        <td>March 14, 1879</td>
-        <td>Ulm, Germany</td>
-        <td>April 18, 1955</td>
-        <td>Princeton, USA</td>
-        <td class="description">Theoretical physicist</td>
-        <td class="history">Developed the theory of relativity, Nobel Prize in Physics (1921).</td>
-      </tr>
-      <tr>
-        <td class="category">Art</td>
-        <td>Leonardo da Vinci</td>
-        <td>April 15, 1452</td>
-        <td>Anchiano, Italy</td>
-        <td>May 2, 1519</td>
-        <td>Amboise, France</td>
-        <td class="description">Painter, inventor, polymath</td>
-        <td class="history">Created iconic works like the Mona Lisa and The Last Supper.</td>
-      </tr>
-      <!-- Add hundreds more rows here -->
-    </tbody>
-  </table>
-
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("keyup", function() {
-      const filter = searchInput.value.toLowerCase();
-      const rows = document.querySelectorAll("#peopleTable tr");
-      rows.forEach(row => {
-        const text = row.textContent.toLowerCase();
-        row.style.display = text.includes(filter) ? "" : "none";
-      });
-    });
-  </script>
-</body>
-</html>
+      <!-- 50 sample rows -->
+      <tr><td class="category">Science</td><td>Albert Einstein</td><td>1879</td><td>Ulm, Germany</td><td>1955</td><td>Princeton, USA</td><td class="description">Physicist</td><td class="history">Theory of relativity.</td></tr>
+      <tr><td class="category">Art</td><td>Leonardo da Vinci</td><td>1452</td><td>Anchiano, Italy</td><td>1519</td><td>Amboise, France</td><td class="description">Painter</td><td class="history">Mona Lisa, Last Supper.</td></tr>
+      <tr><td class="category">Religion</td><td>Jesus Christ</td><td>c. 4 BC</td><td>Bethlehem, Judea</td><td>c. 30 AD</td><td>Jerusalem, Judea</td><td class="description">Religious leader</td><td class="history">Central figure of Christianity.</td></tr>
+      <tr><td class="category">Business</td><td>Mark Zuckerberg</td><td>1984</td><td>New York, USA</td><td>Living</td><td>Palo Alto, USA</td><td class="description">Entrepreneur</td><td class="history">Founder of Facebook.</td></tr>
+      <tr><td class="category">Politics</td><td>Mahatma Gandhi</td><td>1869</td><td>Porbandar, India</td><td>1948</td><td>New Delhi, India</td><td class="description">Leader</td><td class="history">Indian independence movement.</td></tr>
+      <tr><td class="category">Science</td><td>Marie Curie</td><td>1867</td><td>Warsaw, Poland</td><td>1934</td><td>Passy, France</td><td class="description">Chemist</td><td class="history">Radioactivity research.</td></tr>
+      <tr><td class="category">Sports</td><td>Pele</td><td>1940</td><td>Brazil</td><td>2022</td><td>São Paulo, Brazil</td><td class="description">Footballer</td><td class="history">Three World Cups.</td></tr>
+      <tr><td class="category">Entertainment</td><td>Charlie Chaplin</td><td>1889</td><td>London, UK</td><td>1977</td><td>Switzerland</td><td class="description">Actor</td><td class="history">Silent film comedy.</td></tr>
+      <tr><td class="category">Art</td><td>Frida Kahlo</td><td>1907</td><td>Mexico City, Mexico</td><td>1954</td><td>Mexico City, Mexico</td><td class="description">Painter</td><td class="history">Self-portraits, identity themes.</td></tr>
+      <tr><td class="category">Sports</td><td>Michael Jordan</td><td>1963</td><td>New York, USA</td><td>Living</td><td>Florida, USA</td><td class="description">Basketball player</td><td class="history">Six-time NBA champion.</td></tr>
+      <tr><td class="category">Science</td><td>Isaac Newton</td><td>1643</td><td>Lincolnshire, England</td><td>1727</td><td>London, England</td><td class="description">Physicist</td><td class="history">Laws of motion and gravity.</td></tr>
+      <tr><td class="category">Politics</td><td>Nelson Mandela</td><td>1918</td><td>Mvezo, South Africa</td><td>2013</td><td>Johannesburg, South Africa</td><td class="description">President</td><td class="history">Anti-apartheid leader.</td></tr>
+      <tr><td class="category">Entertainment</td><td>Elvis Presley</td><td>1935</td><td>Tupelo, USA</td><td>1977</td><td>Memphis, USA</td><td class="description">Singer</td><td class="history">King of Rock and Roll.</td></tr>
+      <tr><td class="category">Business</td><td>Steve Jobs</td><td>1955</td><td>San Francisco, USA</td><td>2011</td><td>Palo Alto, USA</td><td class="description">Entrepreneur</td><td class="history">Apple Inc. co-founder.</td></tr>
+      <tr><td class="category">Religion</td><td>Buddha</td><td>c. 563 BC</td><td>Lumbini, Nepal</td><td>c. 483 BC</td><td>Kushinagar, India</td><td class="description">Religious leader</td><td class="history">Founder of Buddhism.</td></tr>
+      <tr><td class="category">Science</td><td>Galileo Galilei</td><td>1564</td><td>Pisa, Italy</td><td>1642</td><td>Florence, Italy</td><td class="description">Astronomer</td><td class="history">Father of modern science.</td></tr>
+      <tr><td class="category">Sports</td><td>Usain Bolt</td><td>1986</td><td>Jamaica</td><td>Living</td><td>Kingston, Jamaica</td><td class="description">Sprinter</td><td class="history">Fastest man alive.</td></tr>
+      <tr><td class="category">Art</td><td>Pablo Picasso</td><td>1881</td><td>Málaga, Spain</td><td>1973</td><td>France</td><td class="description">Painter</td><td class="history">Cubism pioneer.</td></tr>
+      <tr><td class="category">Entertainment</td><td>Marilyn Monroe</td
