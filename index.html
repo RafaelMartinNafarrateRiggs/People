@@ -53,25 +53,41 @@
   </style>
 </head>
 <body>
+  <script>
+function sortTable(columnIndex) {
+  var table = document.getElementById("peopleTable");
+  var rows = Array.from(table.rows).slice(1); // skip header
+  var ascending = table.getAttribute("data-sort-dir") !== "asc";
+
+  rows.sort(function(a, b) {
+    var cellA = a.cells[columnIndex].innerText.toLowerCase();
+    var cellB = b.cells[columnIndex].innerText.toLowerCase();
+    if (cellA < cellB) return ascending ? -1 : 1;
+    if (cellA > cellB) return ascending ? 1 : -1;
+    return 0;
+  });
+
+  rows.forEach(row => table.tBodies[0].appendChild(row));
+  table.setAttribute("data-sort-dir", ascending ? "asc" : "desc");
+}
+</script>
   <h1>People of the World</h1>
   <div id="searchContainer">
     <input type="text" id="searchInput" placeholder="">
   </div>
   <table>
     <thead>
-      <tr>
-        <th>Category</th>
-        <th>Name</th>
-        <th>Born - Time</th>
-        <th>Born - Place</th>
-        <th>Died - Time</th>
-        <th>Died - Place</th>
-        <th>Description</th>
-        <th>History</th>
-      </tr>
-    </thead>
+    <tr>
+      <th onclick="sortTable(0)">Category</th>
+      <th onclick="sortTable(1)">Name</th>
+      <th onclick="sortTable(2)">Born - Time</th>
+      <th onclick="sortTable(3)">Born - Place</th>
+      <th onclick="sortTable(4)">Died - Time</th>
+      <th onclick="sortTable(5)">Died - Place</th>
+      <th onclick="sortTable(6)">Description</th>
+    </tr>
+  </thead>
     <tbody id="peopleTable">
-      <!-- 50 sample rows -->
       <tr><td class="category">Science</td><td>Albert Einstein</td><td>1879</td><td>Ulm, Germany</td><td>1955</td><td>Princeton, USA</td><td class="description">Physicist</td><td class="history">Theory of relativity.</td></tr>
       <tr><td class="category">Art</td><td>Leonardo da Vinci</td><td>1452</td><td>Anchiano, Italy</td><td>1519</td><td>Amboise, France</td><td class="description">Painter</td><td class="history">Mona Lisa, Last Supper.</td></tr>
       <tr><td class="category">Religion</td><td>Jesus Christ</td><td>c. 4 BC</td><td>Bethlehem, Judea</td><td>c. 30 AD</td><td>Jerusalem, Judea</td><td class="description">Religious leader</td><td class="history">Central figure of Christianity.</td></tr>
@@ -188,4 +204,4 @@
   <td class="description">Engineer</td>
   <td class="history">Developed compact, affordable window units, making AC widely available.</td>
 </tr>
-                                                             
+                                                                    
