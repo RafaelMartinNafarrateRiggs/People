@@ -51,8 +51,6 @@
       background-size: 20px;
     }
   </style>
-</head>
-<body>
   <script>
 function sortTable(columnIndex) {
   var table = document.getElementById("peopleTable");
@@ -71,6 +69,8 @@ function sortTable(columnIndex) {
   table.setAttribute("data-sort-dir", ascending ? "asc" : "desc");
 }
 </script>
+</head>
+<body>
   <h1>People of the World</h1>
   <div id="searchContainer">
     <input type="text" id="searchInput" placeholder="">
@@ -204,4 +204,4 @@ function sortTable(columnIndex) {
   <td class="description">Engineer</td>
   <td class="history">Developed compact, affordable window units, making AC widely available.</td>
 </tr>
-                                                                    
+    
